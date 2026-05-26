@@ -1,0 +1,238 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}About Us – Future Forward Develpement Initiative{% endblock %}
+{% block meta_description %}Learn about Future Forward Development - Empowering youths in communities since 2023.{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HERO BANNER -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="fp" style="left:10%;width:5px;height:5px;animation-duration:7s;animation-delay:0s;"></div>
+  <div class="fp" style="left:25%;width:4px;height:4px;animation-duration:9s;animation-delay:1.5s;"></div>
+  <div class="fp" style="left:55%;width:7px;height:7px;animation-duration:6s;animation-delay:.8s;"></div>
+  <div class="fp" style="left:75%;width:5px;height:5px;animation-duration:11s;animation-delay:2s;"></div>
+  <div class="fp" style="left:88%;width:4px;height:4px;animation-duration:8s;animation-delay:.4s;"></div>  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span><span>Who We Are</span>
+    </div>
+    <span class="page-hero-label">Learn About Us</span>
+    <h1 class="page-hero-title">About<br><em>Future Foward Development Initiative</em></h1>
+  </div>
+</section>
+
+<!-- ABOUT INTRO -->
+<section class="about-intro">
+  <div class="about-intro-inner">
+    <div class="about-text-block">
+      <span class="section-label reveal">Who We Are</span>
+      <h2 class="section-title reveal" style="transition-delay:.1s"><em>Future Forward Development Initiative</em></h2>
+      <p class="reveal" style="transition-delay:.2s">
+      <img src="{% static '' %}images/team.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
+
+Future Forward Development Initiative (FFDI) was established in response to the growing social and economic challenges affecting young people and underserved communities, particularly in Northern Nigeria. Recognizing the urgent need for inclusive development, civic engagement, and youth empowerment, the organization was founded to create sustainable, community-driven solutions that address systemic barriers to opportunity and participation.
+
+What began as a grassroots effort focused on youth engagement and advocacy at the university campus has evolved into a growing development initiative committed to strengthening communities through education, entrepreneurship, active citizenship, and health and well-being programs. Our early interventions centered on awareness campaigns, leadership development, and community outreach activities designed to equip young people with the knowledge, skills, and confidence to become active contributors to societal progress.</p>
+      <p class="reveal" style="transition-delay:.3s">Over the years, FFDI has expanded its work through partnerships and collaborations with civil society organizations, institutions, community leaders, and development actors. Through these engagements, we have implemented initiatives focused on climate action, digital safety awareness, gender and social inclusion, youth leadership, and community empowerment.
+
+At the core of our work is the belief that sustainable development is only possible when communities are actively involved in shaping solutions to the challenges they face. We therefore adopt a participatory and impact-driven approach that prioritizes local engagement, capacity strengthening, innovation, and long-term sustainability. </p>
+      <p class="reveal" style="transition-delay:.4s">Today, Future Forward Development Initiative continues to serve as a platform for empowering young people, amplifying marginalized voices, and promoting inclusive development. As we grow, we remain committed to building resilient communities and fostering partnerships that drive measurable and lasting social impact.</p>
+      <div class="key-drivers reveal" style="transition-delay:.5s">
+         <h4>Our Key Drivers</h4>
+        <ul class="driver-list">
+          <li>Sustainable Impact</li>
+          <li>Inclusive Development</li>
+          <li>Youth Empowerment</li>
+          <li>Stronger Communities</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-visual reveal" style="transition-delay:.2s">
+      <div class="visual-card">
+        <div class="visual-card-inner">
+          <div class="visual-emblem">FFDI</div>
+          <div class="visual-stat-row">
+            <div class="vis-stat">
+              <div class="vis-stat-num" data-target="3">0+</div>
+              <div class="vis-stat-label">Years empowering communities across Africa</div>
+            </div>
+            <div class="vis-stat">
+              <div class="vis-stat-num" data-target="10000">0+</div>
+              <div class="vis-stat-label">Young people reached through trainings and advocacy</div>
+            </div>
+            <div class="vis-stat">
+              <div class="vis-stat-num" data-target="10">0+</div>
+              <div class="vis-stat-label">Projects and campaigns successfully implemented</div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-year">2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="vm-section">
+  <div class="vm-bg"></div>
+  <div class="vm-inner">
+    <div class="vm-card" style="transition-delay:.1s">
+      <div class="vm-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-gem" viewBox="0 0 16 16">
+  <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z"/>
+</svg></div>
+      <span class="vm-card-eyebrow">Our Mission</span>
+      <div class="vm-card-divider"></div>
+      <h2>To <em>empower</em> young minds </h2>
+      <p>FFDI exists to equip young people and marginalized communities in Nigeria with the knowledge, skills, and support systems needed to overcome social, economic, and environmental challenges, while building sustainable pathways for personal and community transformation.</p>
+    </div>
+    <div class="vm-card" style="transition-delay:.25s">
+      <div class="vm-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-globe-europe-africa" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.81.81 0 0 1 1.034-.275.81.81 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34q.118.04.243.054c.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.33.33 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501"/>
+</svg></div>
+      <span class="vm-card-eyebrow">Our Vision</span>
+      <div class="vm-card-divider"></div>
+      <h2>...Future driven by <em>empowered and engaged</em> youths.</h2>
+      <p>We envision resilient Nigerian communities where empowered young people actively lead climate action, social inclusion, and sustainable development, ensuring every young person has the opportunity to thrive and contribute meaningfully to society.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM MEMBERS -->
+<section class="team-section">
+  <div class="team-inner">
+
+    <div class="team-header reveal">
+      <span class="section-label">The People Behind the Work</span>
+      <h2 class="section-title">Meet Our <em>Team</em></h2>
+          </div>
+
+    <!-- REMOVE "reveal" HERE if it breaks grid -->
+    <div class="team-grid">
+
+      <!-- CARD 1 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/Mane.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://twitter.com/umaru_mane?t=nePfcHvrqiazZg4kYKSe5A&s=09" target="_blank">𝕏</a>
+            <a href="https://www.linkedin.com/in/mane-umaru-saidu-093ab21b3" target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Mane Umaru Saidu</h4>
+          <p class="team-card-position">Executive Director</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/Emma.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://www.linkedin.com/in/emmanuel-ezekiel-641b64245" target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Emmanuel Ezekiel</h4>
+          <p class="team-card-position"> Director of Programs</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/daniel.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://twitter.com/ilinusdaniel?t=_kqR5goJhpiDUDS1hUuViQ&s=09" target="_blank">𝕏</a>
+            <a href="www.linkedin.com/in/linus-daniel-69bb3a17a" target="_blank" >in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Linus Daniel</h4>
+          <p class="team-card-position">Head of Operations and Administration</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/sadiya.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://www.linkedin.com/in/sadiya-yunusa-bello-a86780216?utm_source=share_via&utm_content=profile&utm_medium=member_android">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Sadiya Yunusa Bello </h4>
+          <p class="team-card-position">Human Resource</p>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/rhoda.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://x.com/IsahRhoda" target="_blank" >𝕏</a>
+            <a href="https://www.linkedin.com/in/rhoda-isah-kalla-858981266?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Rhoda Isa Kalla</h4>
+          <p class="team-card-position">Advisor & Support Team Member</p>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/hannatu.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://www.linkedin.com/in/hannatu-saidu-55852824a" target="_blank" >𝕏</a>
+            <a href="https://x.com/dahgombegirl?s=21" target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Hannatu Saidu Kwari</h4>
+          <p class="team-card-position">Communications & Media Lead</p>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/sam.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://www.linkedin.com/in/goodness-iffu-71472a261" target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Goodness Samuel Iffu</h4>
+          <p class="team-card-position">Youth Engagement & Programs Officer</p>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="team-card">
+        <div class="team-card-photo">
+          <img src="{% static 'images/inuwa.png' %}" alt="Member Name" class="team-photo-img">
+          <div class="team-card-social">
+            <a href="https://x.com/JadeGuard"  target="_blank" >𝕏</a>
+            <a href="https://www.linkedin.com/in/inuwa-peregrine-jade-guard-daniel-inuwa?utm_source=share_via&utm_content=profile&utm_medium=member_android"  target="_blank">in</a>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <h4 class="team-card-name">Inuwa Daniel Inuwa</h4>
+          <p class="team-card-position">Digital Communications & Media Assistant</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

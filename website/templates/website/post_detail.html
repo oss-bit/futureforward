@@ -1,0 +1,305 @@
+{% extends 'website/base.html' %}
+{% load static website_tags %}
+{% block title %}{{ post.title }} – Future Forward Development initiative{% endblock %}
+{% block meta_description %}{{ post.excerpt|truncatewords:25 }}{% endblock %}
+{% block content %}
+<!-- READING PROGRESS BAR -->
+<div id="progress-bar"></div>
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="fp" style="left:7%;width:5px;height:5px;animation-duration:7s;animation-delay:0s;"></div>
+  <div class="fp" style="left:20%;width:4px;height:4px;animation-duration:9s;animation-delay:1.4s;"></div>
+  <div class="fp" style="left:45%;width:7px;height:7px;animation-duration:6s;animation-delay:.7s;"></div>
+  <div class="fp" style="left:68%;width:5px;height:5px;animation-duration:10s;animation-delay:2s;"></div>
+  <div class="fp" style="left:88%;width:4px;height:4px;animation-duration:8s;animation-delay:.3s;"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-watermark">{{ post.title|truncatewords:1|upper }}</div>
+  <div class="hero-content">
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span>/</span>
+      <a href="{% url 'blog_list' %}">Blog Posts</a><span>/</span> 
+      <span>{{ post.title|truncatewords:5 }}</span>
+    </div>
+    <h1 class="hero-title"><em>{{ post.title|truncatewords:10 }}</em></h1>
+    <div class="hero-meta">
+      <div class="meta-pill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+  <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/>
+  <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+</svg> {{ post.published_at|date:"j F Y" }}</div>
+      <div class="meta-dot"></div>
+      <div class="meta-pill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-top" viewBox="0 0 16 16">
+  <path d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5m2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1z"/>
+</svg> {{ post.read_time }} min read</div>
+      {% if post.category %}
+      <div class="meta-dot"></div>
+      <div class="meta-pill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
+  <path d="M3 2v4.586l7 7L14.586 9l-7-7zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586z"/>
+  <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1z"/>
+</svg> {{ post.category.name }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+  <main class="article-body">
+    <!-- Featured image -->
+    <div class="article-featured-img reveal">
+      {% if post.featured_image %}
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+      {% else %}
+        <div class="article-featured-img-bg" style="background:{{ post.card_gradient }}">
+          <div class="img-pattern"></div>
+          <div class="img-overlay"></div>
+          <div class="img-center-icon">
+            <div class="img-icon-circle">{{ post.card_icon }}</div>
+            <div class="img-label">{{ post.category.name|default:"Blog" }} · {{ post.published_at|date:"Y" }}</div>
+          </div>
+          <div class="img-caption">{{ post.title }} | Future Foward Development initiative</div>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         PROSE BODY
+         • If the post has structured Paragraphs, render those.
+         • Otherwise fall back to the legacy plain-text body field.
+    ════════════════════════════════════════════════════════════ -->
+    <article class="prose" id="article-content">
+
+      {% with paragraphs=post.paragraphs.all %}
+      {% if paragraphs %}
+
+        <!-- ── STRUCTURED PARAGRAPHS ── -->
+        {% for para in paragraphs %}
+        <div class="para-block reveal">
+
+          {% if para.heading %}
+          <h2 class="para-heading">{{ para.heading }}</h2>
+          {% endif %}
+
+          <!-- Images positioned ABOVE or FLOAT LEFT/RIGHT -->
+          {% for img in para.images.all %}
+            {% if img.position == 'above' %}
+            <figure class="para-figure para-figure--above">
+              <img src="{{ img.image.url }}"
+                   alt="{{ img.alt_text|default:img.caption }}"
+                   class="para-img" style="width: 100%; height: 100%; object-fit: cover;">
+              {% if img.caption %}
+              <figcaption class="para-caption">{{ img.caption }}</figcaption>
+              {% endif %}
+            </figure>
+            {% elif img.position == 'left' %}
+            <figure class="para-figure para-figure--left">
+              <img src="{{ img.image.url }}"
+                   alt="{{ img.alt_text|default:img.caption }}"
+                   class="para-img" style="width: 100%; height: 100%; object-fit: cover;">
+              {% if img.caption %}
+              <figcaption class="para-caption">{{ img.caption }}</figcaption>
+              {% endif %}
+            </figure>
+            {% elif img.position == 'right' %}
+            <figure class="para-figure para-figure--right">
+              <img src="{{ img.image.url }}"
+                   alt="{{ img.alt_text|default:img.caption }}"
+                   class="para-img" style="width: 100%; height: 100%; object-fit: cover;">
+              {% if img.caption %}
+              <figcaption class="para-caption">{{ img.caption }}</figcaption>
+              {% endif %}
+            </figure>
+            {% endif %}
+          {% endfor %}
+
+          <!-- Paragraph text -->
+          <div class="para-content">{{ para.content|linebreaks }}</div>
+
+          <!-- Clear floats before rendering BELOW images -->
+          <div style="clear:both;"></div>
+
+          <!-- Images positioned BELOW -->
+          {% for img in para.images.all %}
+            {% if img.position == 'below' %}
+            <figure class="para-figure para-figure--below">
+              <img src="{{ img.image.url }}"
+                   alt="{{ img.alt_text|default:img.caption }}"
+                   class="para-img" style="width: 100%; height: 100%; object-fit: cover;">
+              {% if img.caption %}
+              <figcaption class="para-caption">{{ img.caption }}</figcaption>
+              {% endif %}
+            </figure>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+        {% endfor %}
+
+      {% else %}
+
+        <!-- ── LEGACY PLAIN-TEXT BODY (fallback) ── -->
+        <div class="reveal">
+          {{ post.body|linebreaks }}
+        </div>
+
+      {% endif %}
+      {% endwith %}
+
+
+      <!-- Share section -->
+      <div class="share-section reveal">
+        <div class="share-label">
+          <span>Share this post</span>
+          Spread the word
+        </div>
+        <div class="share-btns">
+          <button class="share-btn twitter" onclick="shareTwitter()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+</svg></button>
+          <button class="share-btn facebook" onclick="shareFacebook()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+</svg></button>
+          <button class="share-btn whatsapp" onclick="shareWhatsApp()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg></button>
+          <button class="share-btn copy" id="copyBtn" onclick="copyLink()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg> Copy Link</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related posts -->
+    {% if related_posts %}
+    <section class="related-section reveal" id="related">
+      <h2>Related Posts</h2>
+      <p>More stories from Future Forward Development initiative</p>
+      <div class="related-grid">
+        {% for rpost in related_posts %}
+        <article class="related-card rc{{ forloop.counter }}">
+          <a href="{{ rpost.get_absolute_url }}" style="text-decoration:none;">
+            <div class="related-card-img">
+              {% if rpost.featured_image %}
+                <img src="{{ rpost.featured_image.url }}" alt="{{ rpost.title }}" style="width:100%;height:100%;object-fit:cover;">
+              {% else %}
+                <div class="related-card-img-bg" style="background:{{ rpost.card_gradient }}"></div>
+                <div class="related-card-icon">{{ rpost.card_icon }}</div>
+              {% endif %}
+              {% if rpost.category %}<span class="related-cat">{{ rpost.category.name }}</span>{% endif %}
+            </div>
+            <div class="related-body">
+              <div class="related-date">{{ rpost.published_at|date:"j F Y" }}</div>
+              <h4>{{ rpost.title }}</h4>
+            </div>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Comments -->
+    <section class="comments-section reveal" id="comments">
+      <h2>
+        {% with count=comments|length %}
+          {{ count }} Comment{{ count|pluralize }}
+        {% endwith %}
+      </h2>
+      {% for comment in comments %}
+      <div class="comment" style="background:var(--white);border-radius:16px;padding:28px;margin-bottom:20px;box-shadow:0 3px 14px rgba(0,0,0,.06);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green-mid),var(--green-accent));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);flex-shrink:0;">
+            {{ comment.name|first|upper }}
+          </div>
+          <div>
+            <div style="font-weight:600;color:var(--green-deep);font-size:15px;">{{ comment.name }}</div>
+            <div style="font-size:12px;color:var(--text-light);font-family:'Space Mono',monospace;">{{ comment.created_at|date:"j F Y" }}</div>
+          </div>
+        </div>
+        <p style="font-size:15px;line-height:1.75;color:var(--text-mid);">{{ comment.body }}</p>
+      </div>
+      {% empty %}
+      <p style="color:var(--text-light);font-size:15px;margin-bottom:32px;">Be the first to leave a comment.</p>
+      {% endfor %}
+      <!-- Comment form -->
+      <div class="comment-form">
+        <h3>Leave a Reply</h3>
+        <p class="form-note">Your email address will not be published. Required fields are marked <span style="color:var(--gold)">*</span></p>
+        <form method="post" action="{% url 'post_detail' post.slug %}#comments">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name <span>*</span></label>
+              {{ comment_form.name }}
+              {% if comment_form.name.errors %}
+              <span style="color:#c0392b;font-size:12px;">{{ comment_form.name.errors.0 }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span>*</span></label>
+              {{ comment_form.email }}
+              {% if comment_form.email.errors %}
+              <span style="color:#c0392b;font-size:12px;">{{ comment_form.email.errors.0 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Website</label>
+            {{ comment_form.website }}
+          </div>
+          <div class="form-group">
+            <label class="form-label">Comment <span>*</span></label>
+            {{ comment_form.body }}
+            {% if comment_form.body.errors %}
+            <span style="color:#c0392b;font-size:12px;">{{ comment_form.body.errors.0 }}</span>
+            {% endif %}
+          </div>
+          <button type="submit" class="submit-btn">Post Comment →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- SIDEBAR -->
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progress-bar').style.width = (window.scrollY / total * 100) + '%';
+  });
+  // Share buttons
+  const pageUrl = encodeURIComponent(location.href);
+  const pageTitle = encodeURIComponent('{{ post.title|escapejs }}');
+  function shareTwitter()  { window.open('https://twitter.com/intent/tweet?text='+pageTitle+'&url='+pageUrl,'_blank'); }
+  function shareFacebook() { window.open('https://www.facebook.com/sharer/sharer.php?u='+pageUrl,'_blank'); }
+  function shareWhatsApp() { window.open('https://api.whatsapp.com/send?text='+pageTitle+' '+pageUrl,'_blank'); }
+  function copyLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      const btn = document.getElementById('copyBtn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Copied!';
+      btn.style.background = 'var(--green-deep)';
+      btn.style.color = 'var(--white)';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background=''; btn.style.color=''; }, 2000);
+    });
+  }
+  // Active TOC highlight
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    ['article-content','related','comments'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    tocLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.style.background = active ? 'var(--green-deep)' : '';
+      a.style.color      = active ? 'var(--white)' : '';
+      a.style.paddingLeft = active ? '16px' : '';
+    });
+  });
+</script>
+{% endblock %}

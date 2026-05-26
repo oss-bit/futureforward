@@ -1,0 +1,214 @@
+{% extends 'website/base.html' %}
+{% load static website_tags %}
+
+{% block title %}Future Forward Development Initiative{% endblock %}
+
+{% block content %}
+
+<!-- HERO SLIDER -->
+<section class="hero" id="hero">
+
+  {% if slides %}
+    {% for slide in slides %}
+    <div class="slide slide-{{ forloop.counter }}{% if forloop.first %} active{% endif %}">
+      <div class="slide-bg"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h1 class="slide-title">
+          {% if slide.title_em %}
+            {{ slide.title|cut:slide.title_em }} <em>{{ slide.title_em }}</em>
+          {% else %}
+            {{ slide.title }}
+          {% endif %}
+        </h1>
+        <p class="slide-desc">{{ slide.description }}</p>
+        <a href="{{ slide.cta_url }}" class="slide-cta">{{ slide.cta_text }} ↓</a>
+      </div>
+      <div class="hero-decor"></div>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+  <button class="slider-arrow slider-prev" id="prev">‹</button>
+  <button class="slider-arrow slider-next" id="next">›</button>
+
+  <div class="slider-dots" id="sliderDots"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text fade-up">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title">Founded to <em>Empower </em>Communities<br> and<em> Drive</em> Change</h2>
+      <p> Founded in 2023, the Future Forward Development Initiative (FFDI) is a youth-led civil society organization committed to empowering marginalized and underserved communities across Nigeria. The organization began at Gombe State University as Start the Future Initiative, where a group of undergraduate students came together with a shared passion for youth development, leadership, and social impact through grassroots action and campus-based advocacy.</p>
+      <a href="{% url 'about' %}" class="about-link">Read Our Full Story →</a>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">3<span>+</span></div>
+        <div class="stat-label">Years of community engagement and youth empowerment</div>
+      </div>
+      <div class="stat-card" style="transition-delay:0.15s">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Projects and campaigns successfully implemented</div>
+      </div>
+      <div class="stat-card" style="transition-delay:0.3s">
+          <div class="stat-number">10000<span>+</span></div>
+        <div class="stat-label">Young people reached through trainings and advocacy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANDATE -->
+<section class="mandate">
+  <div class="mandate-inner">
+    <span class="section-label fade-up">Our Mandate</span>
+    <h2 class="section-title fade-up">Vision, Mission &amp; Values</h2>
+    <div class="mandate-grid">
+      <div class="mandate-card">
+        <div class="mandate-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-gem" viewBox="0 0 16 16">
+  <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z"></path>
+</svg></div>
+        <h3>Our Vision</h3>
+        <p>We envision resilient Nigerian communities where empowered young people actively lead climate action, social inclusion, and sustainable development, ensuring every young person has the opportunity to thrive and contribute meaningfully to society.</p>
+      </div>
+      <div class="mandate-card" style="transition-delay:0.15s">
+        <div class="mandate-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-globe-europe-africa" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.81.81 0 0 1 1.034-.275.81.81 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34q.118.04.243.054c.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.33.33 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501"></path>
+</svg></div>
+        <h3>Our Mission</h3>
+        <p>FFDI exists to equip young people and marginalized communities in Nigeria with the knowledge, skills, and support systems needed to overcome social, economic, and environmental challenges, while building sustainable pathways for personal and community transformation.</p>
+      </div>
+      <div class="mandate-card" style="transition-delay:0.3s">
+        <div class="mandate-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-brilliance" viewBox="0 0 16 16">
+  <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16M1 8a7 7 0 0 0 7 7 3.5 3.5 0 1 0 0-7 3.5 3.5 0 1 1 0-7 7 7 0 0 0-7 7"/>
+</svg></div>
+        <h3>Our Approach</h3>
+        <p>Guided by integrity and innovation, we prioritize teamwork, excellence, and diversity in fostering a culture of growth, accountability, and sustained impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" id="values">
+  <div class="values-inner">
+    <div class="values-left fade-up">
+      <span class="section-label">What Drives Us</span>
+      <h2 class="section-title">Building <em>Stronger</em> Institutions</h2>
+      <p>We collaborate with government institutions, civil society, and citizens to deliver improved public services, create access to information, and empower people at every level.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-item">
+        <h4> <svg fill="#FFBF00" height="35px" width="35px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 263.976 263.976" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M149.763,36.21c3.01-3.811,4.871-8.616,4.871-13.837C154.634,10.036,144.628,0,132.291,0s-22.358,10.036-22.358,22.373 c0,5.222,1.597,10.026,4.605,13.837c-9.211,5.839-15.55,16.117-15.55,27.807v27.22c0,4.143,3.785,7.739,7.928,7.739h50.811 c4.143,0,7.262-3.597,7.262-7.739v-27.22C164.988,52.327,158.976,42.048,149.763,36.21z"></path> <path d="M81.988,124.539v-27.22c0-11.689-5.754-21.969-14.967-27.807c3.01-3.811,5-8.616,5-13.837 c0-12.337-9.942-22.373-22.279-22.373S27.416,43.339,27.416,55.676c0,5.222,1.855,10.026,4.863,13.837 c-9.212,5.839-15.292,16.117-15.292,27.807v27.22c0,4.143,3.301,7.437,7.443,7.437h50.811 C79.384,131.976,81.988,128.682,81.988,124.539z"></path> <path d="M232.034,69.513c3.008-3.811,5.006-8.616,5.006-13.837c0-12.337-9.939-22.373-22.276-22.373 c-12.337,0-22.325,10.036-22.325,22.373c0,5.222,1.843,10.026,4.852,13.837c-9.212,5.839-15.304,16.117-15.304,27.807v27.22 c0,4.143,3.326,7.437,7.469,7.437h50.811c4.143,0,6.721-3.294,6.721-7.437v-27.22C246.988,85.63,241.245,75.351,232.034,69.513z"></path> <path d="M149.763,201.464c3.01-3.811,4.871-8.615,4.871-13.836c0-12.337-10.006-22.373-22.343-22.373s-22.358,10.036-22.358,22.373 c0,5.221,1.597,10.026,4.605,13.837c-9.211,5.839-15.55,16.117-15.55,27.807v27.22c0,4.143,3.785,7.484,7.928,7.484h50.811 c4.143,0,7.262-3.342,7.262-7.484v-27.22C164.988,217.581,158.976,207.304,149.763,201.464z M132.321,180.255 c4.065,0,7.373,3.308,7.373,7.373c0,4.066-3.308,7.373-7.373,7.373s-7.373-3.308-7.373-7.373 C124.948,183.563,128.255,180.255,132.321,180.255z M149.988,248.976h-36v-19.704c0-9.874,8.127-17.906,18.001-17.906 c9.872,0,17.999,8.032,17.999,17.906V248.976z"></path> <path d="M138.988,138.555v-24.854c0-4.143-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.357-7.5,7.5v24.854c0,4.143,3.357,7.5,7.5,7.5 C135.63,146.055,138.988,142.697,138.988,138.555z"></path> <path d="M59.331,140.177c-3.009-2.847-7.753-2.718-10.604,0.289c-2.848,3.008-2.718,7.755,0.289,10.604l37.709,35.707 c1.451,1.373,3.305,2.054,5.156,2.054c1.987,0,3.972-0.786,5.447-2.343c2.848-3.008,2.718-7.755-0.289-10.604L59.331,140.177z"></path> <path d="M205.241,140.071l-37.606,35.789c-3.001,2.855-3.118,7.603-0.263,10.603c1.474,1.55,3.452,2.33,5.434,2.33 c1.857,0,3.718-0.686,5.169-2.067l37.606-35.789c3.001-2.855,3.118-7.602,0.263-10.602 C212.989,137.332,208.241,137.217,205.241,140.071z"></path> </g> </g></svg> Stronger Communities</h4>
+        <p>We work at the grassroots level to build resilient communities that can respond to social and economic challenges.</p>
+      </div>
+      <div class="value-item" style="transition-delay:0.1s">
+        <h4><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FFBF00" class="bi bi-rocket-takeoff-fill" viewBox="0 0 16 16">
+  <path d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.6 3.6 0 0 0-.108-.563 2 2 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2 2 0 0 0-.16-.045 4 4 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.55 2.55 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361s.437 1.732-.36 2.531Z"/>
+  <path d="M5.205 10.787a7.6 7.6 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925"/>
+</svg> Youth Empowerment</h4>
+        <p>We equip young people with leadership skills, knowledge, and opportunities to drive positive change.</p>
+      </div>
+      <div class="value-item" style="transition-delay:0.2s">
+          <h4><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FFBF00" class="bi bi-person-wheelchair" viewBox="0 0 16 16">
+  <path d="M12 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m-.663 2.146a1.5 1.5 0 0 0-.47-2.115l-2.5-1.508a1.5 1.5 0 0 0-1.676.086l-2.329 1.75a.866.866 0 0 0 1.051 1.375L7.361 3.37l.922.71-2.038 2.445A4.73 4.73 0 0 0 2.628 7.67l1.064 1.065a3.25 3.25 0 0 1 4.574 4.574l1.064 1.063a4.73 4.73 0 0 0 1.09-3.998l1.043-.292-.187 2.991a.872.872 0 1 0 1.741.098l.206-4.121A1 1 0 0 0 12.224 8h-2.79zM3.023 9.48a3.25 3.25 0 0 0 4.496 4.496l1.077 1.077a4.75 4.75 0 0 1-6.65-6.65z"/>
+</svg> Inclusive Development</h4>
+        <p>We promote equity and ensure marginalized voices, including persons with disabilities, are heard and included.</p>
+      </div>
+      <div class="value-item" style="transition-delay:0.3s">
+        <h4><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#FFBF00" class="bi bi-leaf-fill" viewBox="0 0 16 16">
+  <path d="M1.4 1.7c.217.289.65.84 1.725 1.274 1.093.44 2.885.774 5.834.528 2.02-.168 3.431.51 4.326 1.556C14.161 6.082 14.5 7.41 14.5 8.5q0 .344-.027.734C13.387 8.252 11.877 7.76 10.39 7.5c-2.016-.288-4.188-.445-5.59-2.045-.142-.162-.402-.102-.379.112.108.985 1.104 1.82 1.844 2.308 2.37 1.566 5.772-.118 7.6 3.071.505.8 1.374 2.7 1.75 4.292.07.298-.066.611-.354.715a.7.7 0 0 1-.161.042 1 1 0 0 1-1.08-.794c-.13-.97-.396-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.124-.887-1.889-2.095-2.39-3.383-1-2.562-1-5.536-.65-7.28L.73.806z"/>
+</svg> Sustainable Impact</h4>
+        <p>We design solutions that are practical, scalable, and capable of creating long-term change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEMATIC AREAS -->
+<section class="thematic" id="thematic">
+  <div class="thematic-inner">
+    <div class="thematic-header fade-up">
+      <span class="section-label">Our Focus</span>
+      <h2 class="section-title">Thematic <em>Areas</em></h2>
+    </div>
+    <div class="thematic-grid">
+            <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_3.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+            <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_16.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+             <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_10.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+              <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_4.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+               <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_8.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+                <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_6.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+                 <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_13.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+                 <div class="thematic-card tc-1"> <img src="{% static 'images/SDG_5.png' %}" alt="Your Org"  style=" width: 150px; height: 150px;"  > </div>
+
+
+
+    </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories" id="stories">
+  <div class="stories-inner">
+    <div class="stories-header">
+      <div class="fade-up">
+        <span class="section-label">Latest Updates</span>
+        <h2 class="section-title">Our <em>Stories</em></h2>
+      </div>
+      <a href="{% url 'blog_list' %}" class="stories-link fade-up">View All Stories →</a>
+    </div>
+    <div class="stories-grid">
+      {% for post in recent_posts %}
+      <div class="story-card s{{ forloop.counter }}">
+        <div class="story-img">
+          {% if post.featured_image %}
+            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width:100%;height:100%;object-fit:cover;">
+          {% else %}
+            <div class="story-img-bg" style="background:{{ post.card_gradient }}"></div>
+            <div class="story-img-icon">{{ post.card_icon }}</div>
+          {% endif %}
+          {% if post.category %}
+          <span class="story-category">{{ post.category.name }}</span>
+          {% endif %}
+        </div>
+        <div class="story-body">
+          <div class="story-date">{{ post.published_at|date:"j F Y" }}</div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt|truncatewords:25 }}</p>
+          <a href="{{ post.get_absolute_url }}" class="about-link" style="margin-top:12px">Read More →</a>
+        </div>
+      </div>
+      {% empty %}
+      <div class="story-card s1"><div class="story-img"><div class="story-img-bg"></div><div class="story-img-icon">📰</div></div><div class="story-body"><div class="story-date">No posts yet</div><h3>Stories coming soon</h3><p>Check back later for updates from FFDI.</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS MARQUEE -->
+<section class="partners" id="partners">
+  <div class="partners-header fade-up">
+    <span class="section-label">Those Who Stand With Us</span>
+    <h2 class="section-title">Our Donors &amp; Partners</h2>
+    <p>Through the gracious support and commitment of our partners, we empower thousands of people in marginalized communities.</p>
+  </div>
+  <div class="marquee-track">
+    <div class="marquee-content" id="marquee">
+        <div class="partner-logo"> <img src="{% static 'images/GYM-logo.png' %}" alt="Your Org" class="nav-logo-img"></div>
+        <div class="partner-logo"> <img src="{% static 'images/meridian-logo.png' %}" alt="Your Org" class="nav-logo-img"></div>
+        <div class="partner-logo"> <img src="{% static 'images/umi-logo.png' %}" alt="Your Org" class="nav-logo-img"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="contact">
+  <h2>Join the Movement</h2>
+  <p>Together we can build a future where young people have the skills, opportunities, and confidence to shape thriving communities. Your support creates lasting impact.</p>
+  <a href="#" class="cta-btn">Donate Today ❤</a>
+</section>
+
+{% endblock %}

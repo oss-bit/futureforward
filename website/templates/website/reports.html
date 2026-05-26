@@ -1,0 +1,62 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}{{type}} Reports{% endblock %}
+{% block meta_description %}Learn about Future Forward Development Initiative – Empowering youths in communities since 2023.{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HERO BANNER -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="fp" style="left:10%;width:5px;height:5px;animation-duration:7s;animation-delay:0s;"></div>
+  <div class="fp" style="left:25%;width:4px;height:4px;animation-duration:9s;animation-delay:1.5s;"></div>
+  <div class="fp" style="left:55%;width:7px;height:7px;animation-duration:6s;animation-delay:.8s;"></div>
+  <div class="fp" style="left:75%;width:5px;height:5px;animation-duration:11s;animation-delay:2s;"></div>
+  <div class="fp" style="left:88%;width:4px;height:4px;animation-duration:8s;animation-delay:.4s;"></div>  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span><span>Reports</span>
+    </div>
+    <span class="page-hero-label">Transparency • Accountability • Impact</span>
+    <h1 class="page-hero-title">{{type}} <em>Reports</em></h1>
+  </div>
+</section>
+
+  <!-- MAIN CONTENT -->
+  <div class="blog-layout">
+
+    <main>
+      <!-- Header -->
+      <div style="margin-bottom:40px;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#007070;">All Reports</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:42px;margin-top:8px;">Our <em>{{type}}</em> Reports</h2>
+      </div>
+
+      <!-- Reports Grid -->
+      <div class="posts-grid">
+
+        <!-- Report 1 -->
+        {% for  report in reports %}
+        <div class="post-card">
+            <div class="post-card-img">
+                 <div class="post-card-img-bg"><img src="{% static '' %}images/{{ report.thumbnail_filename }}"  style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <span class="post-cat-badge">2025</span>
+            </div>
+            <div class="post-card-body">
+                <div class="post-card-date">{{report.publish_date}}</div>
+                <h3>{{report.title}}</h3>
+                <a href="{% url 'download_file' filename=report.file_name %}" class="post-link">
+  Download PDF ({{ report.file_size }} MB) →
+</a>
+            </div>
+        </div>
+        {% endfor %}
+       </div>
+    </main>
+  </div>
+
+
+{% endblock %}
